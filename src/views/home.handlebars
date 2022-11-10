@@ -1,0 +1,27 @@
+<div>
+    <div class="navbar">
+        <ul>
+            {{#each routes}}
+            <li><a href={{this.route}}>{{this.label}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div>
+        <h1>{{user.Fist_name}}</h1>
+    </div>
+
+    <div class="productsContainer">
+        {{#each products}}
+            <div class="cardProduct">
+                <img src={{this.Image}}>
+                <h3>{{this.Name}}</h3>
+                <p>{{this.Description}}</p>
+                <h2>${{this.Price}}</h2>
+            </div>
+        {{/each}}
+    </div>
+
+
+</div>
+

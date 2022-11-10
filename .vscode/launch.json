@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch Program",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "program": "${workspaceFolder}\\src\\app.js",
+            "env":{
+                "PORT":"8080",
+                "MONGO_USER":"samuel_mayo28",
+                "MONGO_PWD":"123",
+                "MONGO_DATABASE":"ProyectoFinalDB",
+                "ADMIN_EMAIL":"admin@vendelotuyo.com",
+                "ADMIN_PWD":"adminpassword",
+                "JWT_SECRET":"EsteEsElT0kenMasSecretoDelMundo",
+                "JWT_COOKIE":"CookieVendeLoTuyo"
+            }
+        }
+    ]
+}
