@@ -2,6 +2,7 @@ import { usersService, cartsService } from "../services/index.js";
 import { createHash, isValidPassword } from "../utils.js";
 import jwt from "jsonwebtoken";
 import config from "../config/config.js";
+import { UserDTOInsert } from "../DTOs/usersDTO.js";
 
 const register= async (req,res)=>{
     const{First_name,Last_name,Email,Password,Age,Phone} = req.body;
@@ -19,7 +20,8 @@ const register= async (req,res)=>{
         Phone,
         Cart:cart._id
     }
-    const result = await usersService.saveUser(user);
+    const userDTO= new UserDTOInsert(user)
+    const result = await usersService.saveUser(userDTO);
     res.send({status:'success',payload:result});
 }
 
