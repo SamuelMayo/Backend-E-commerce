@@ -6,6 +6,7 @@ import __dirname from "./utils.js";
 import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js'
 import productsRouter from './routes/products.router.js'
+import usersRouter from './routes/users.router.js'
 import config from "./config/config.js";
 
 const app = express();
@@ -23,6 +24,6 @@ app.use(cookieParser());
 app.use('/',viewsRouter);
 app.use('/api/sessions', sessionsRouter);
 app.use('/api/products', productsRouter);
-
+app.use('/api/users',usersRouter)
 
 const server = app.listen(process.env.PORT,() =>console.log('Listening'));

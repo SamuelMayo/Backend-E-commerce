@@ -15,6 +15,22 @@ const createProduct=async (req,res)=>{
     res.send({status:'success',payload:result})
 }
 
+
+const getAllProducts= async (req,res)=>{
+    let products = await productsService.getProducts();
+    res.send({status:'success',payload:products})
+}
+
+const getProductById= async (req,res)=>{
+    const { pid } = req.params;
+    let product = await productsService.getProductById(pid)
+    if(!product) return res.status(400).send({status:'Error',error:'product not found'});
+    res.send({status:'success',payload:product})
+}
+
+
 export default {
     createProduct,
+    getProductById,
+    getAllProducts
 }

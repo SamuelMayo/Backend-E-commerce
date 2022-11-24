@@ -4,6 +4,8 @@ import uploader from "../services/uploader.js";
 
 const router= Router();
 
+router.get('/',productsController.getAllProducts);
+router.get('/:pid', productsController.getProductById);
 router.post('/', uploader.single('Image'), productsController.createProduct);
 
 export default router
