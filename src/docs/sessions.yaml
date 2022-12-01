@@ -1,0 +1,82 @@
+components:
+  requestBodies:
+    newUser:
+      type: object
+      properties:
+        First_name: 
+          type: string
+          description: Nombre del usuario
+        Last_name: 
+          type: string
+          description: apellido del usuario
+        Email: 
+          type: string
+          description: email del usuario
+        Password: 
+          type: string
+          description: password del usuario que sera haseada
+        Age: 
+          type: number
+          description: Edad de el usuario
+        Phone: 
+          type: number
+          description: numero de contacto del usuario
+      example:
+        First_name: Luis
+        Last_name: Marcano
+        Email: luis@correo.com
+        Password: "123456"
+        Age: 30
+        Phone: 145825471
+
+    userLogin: 
+      type: object
+      properties:
+        email:
+          type: string
+          description: Se ingresa el correo del usuario previamente registrado
+        password:
+          type: string
+          description: Se ingresa la password del usuario sin Hashear
+      example:
+        Email: miguel@correo.com
+        Password: "123456"
+
+paths:
+  /api/sessions/register:
+    post:
+      summary: Agrega un nuevo usuario a la DB
+      tags:
+      - Register
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: '#/components/requestBodies/newUser'
+      responses:
+        '200':
+          description: El usuario fue creado exitosamente
+        '400':
+          description: El usuario ya existia o se enviaron datos incompletos
+        '500':
+          description: Error interno de insersion a la DB
+  
+  /api/sessions/login:
+    post:
+      summary: Inicia la sesion de un usuario
+      tags:
+        - Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/requestBodies/userLogin'
+      responses:
+        '200':
+          description: el usuario fue logueado con exito
+        '400':
+          description: Contraseña incorrecta o datos incompletos
+        '500':
+          description: Error al conectar con la base de datos o de Hasheo

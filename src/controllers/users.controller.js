@@ -11,7 +11,7 @@ const getUsers = async (req, res) => {
 const getUserById = async (req, res) => {
     const { uid } = req.params;
     let result = await usersService.getUserById(uid);
-    if (!user) return res.status(404).send({ status: 'error', error: 'User not found' })
+    if (!result) return res.status(404).send({ status: 'error', error: 'User not found' })
     let user = new UserDTOPresenter(result);
     res.send({ status: 'success', payload: user })
 }

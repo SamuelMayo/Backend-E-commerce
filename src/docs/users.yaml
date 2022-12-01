@@ -1,0 +1,66 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: ObjectId
+          description: Este es un Id, generado automaticamente por mongo
+        full_name:
+          type: string
+          description: Devuelve el First_name y Last_name del usuario
+        email:
+          type: string
+          description: Es el correo del usuario (es unico en la DB)
+        phone:
+          type: number
+          description: Devuelve el numero de telefono del usuario
+        cart:
+          type: ObjectId
+          description: Devuelve el id del carrito del usuario en cuestion
+      example:
+        id: 636aedae746b69085fa11f98
+        full_name: Samuel Mayo
+        email: samuel_mayo456@hotmail.com
+        phone: 5165165
+        cart: 636aedae746b69085fa11f96
+
+
+paths:
+  /api/users:
+    get:
+      summary: obtiene todos los usuarios de la base de datos
+      tags: 
+        - Users
+      responses:
+        "200":
+          description: Los usuarios fueron obtenidos correctamente
+          content: 
+            application/json:
+              schema:
+                type: array
+                items: 
+                  $ref: '#/components/schemas/User'
+  
+  /api/users/{uid}:
+    get:
+      summary: obtiene un usuario por su id
+      parameters:
+        - in: path
+          name: uid
+          required: true
+          schema:
+            type: string
+            minimum: 1
+          description: The user ID (636d56c917421d2fe84c2edd)
+      tags:
+        - User
+      responses:
+        "200":
+          description: el usuario fue obtenido correctamente
+          content: 
+            application/json:
+              schema:
+                type: object
+                item: 
+                  $ref: '#/components/schemas/User'
