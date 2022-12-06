@@ -7,6 +7,7 @@ import viewsRouter from './routes/views.router.js';
 import sessionsRouter from './routes/sessions.router.js'
 import productsRouter from './routes/products.router.js'
 import usersRouter from './routes/users.router.js'
+import cartsRouter from './routes/carts.router.js'
 import config from "./config/config.js";
 import swaggerJsdoc from 'swagger-jsdoc'
 import swaggerUiExpress from 'swagger-ui-express'
@@ -26,8 +27,8 @@ app.use(cookieParser());
 app.use('/', viewsRouter);
 app.use('/api/sessions', sessionsRouter);
 app.use('/api/products', productsRouter);
-app.use('/api/users', usersRouter)
-
+app.use('/api/users', usersRouter);
+app.use('/api/cart', cartsRouter);
 
 const swaggerOptions = {
     definition: {

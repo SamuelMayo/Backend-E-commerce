@@ -10,7 +10,7 @@ router.get('/', privateValidation, viewsController.home);
 router.get('/register', publicValidation,viewsController.register);
 router.get('/login',publicValidation,viewsController.login)
 router.get('/newProduct',privateValidation, executePolicies(['ADMIN']), viewsController.newProduct)
-
+router.get('/cart',privateValidation, executePolicies(['USER']),viewsController.cart)
 
 
 export default router;

@@ -5,10 +5,14 @@
             <li><a href={{this.route}}>{{this.label}}</a></li>
             {{/each}}
         </ul>
+
+        
+
     </div>
 
     <div>
-        <h1>{{user.Fist_name}}</h1>
+        <h1>{{this.user.Name}}</h1>
+        <a href="/api/sessions/logout"><button>Cerrar Sesion</button></a>
     </div>
 
     <div class="productsContainer">
@@ -18,10 +22,11 @@
                 <h3>{{this.Name}}</h3>
                 <p>{{this.Description}}</p>
                 <h2>${{this.Price}}</h2>
+                <button onclick='AddCart("{{this._id}}","{{../this.user.Cart}}")'>Add To Cart</button>
             </div>
         {{/each}}
     </div>
-
-
 </div>
+
+<script src="/js/home.js"></script>
 

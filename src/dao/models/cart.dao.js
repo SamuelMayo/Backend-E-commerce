@@ -9,7 +9,7 @@ const schema= new mongoose.Schema({
                 type:mongoose.SchemaTypes.ObjectId,
                 ref: 'products'
             },
-            quuantity:{
+            quantity:{
                 type:Number,
                 default:1
             }

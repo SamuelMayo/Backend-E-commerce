@@ -15,7 +15,7 @@ export default class CartsDao{
         return cartsModel.create({products:[]})
     }
 
-    update=(id,cart)=>{
-        return cartsModel.findByIdAndUpdate(id,{$set:{products:cart.products}});
+    update=(cid,cart)=>{
+        return cartsModel.findByIdAndUpdate(cid,{$set:{products:cart}});
     }
 }

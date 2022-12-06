@@ -1,0 +1,19 @@
+<div>
+
+    <h1>Mi carrito</h1>
+
+    {{#if products.length}}
+    {{#each products}}
+        <div class="cardProduct">
+            <img src={{this.product.Image}}>
+            <h2>{{this.product.Name}}</h2>
+            <p>{{this.product.Description}}</p>
+            <h3>${{this.product.Price}}</h3>
+            <h4>{{this.quantity}}</h4>
+        </div>
+    {{/each}}
+    {{else}}
+        <h3>Aun no tienes products en tu carrito</h3>
+    {{/if}}
+
+</div>
