@@ -8,7 +8,7 @@ export default class UsersDao {
     }
 
     getByID = (id) => {
-        return userModel.findOne({ _id: id });
+        return userModel.findOne({ _id: id }).lean();
     }
 
     getByEmail = (Email => {

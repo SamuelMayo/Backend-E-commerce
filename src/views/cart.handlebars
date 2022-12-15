@@ -4,16 +4,23 @@
 
     {{#if products.length}}
     {{#each products}}
+    <div>
         <div class="cardProduct">
             <img src={{this.product.Image}}>
             <h2>{{this.product.Name}}</h2>
             <p>{{this.product.Description}}</p>
             <h3>${{this.product.Price}}</h3>
             <h4>{{this.quantity}}</h4>
+            <button onclick='deleteToCart("{{this._id}}","{{../this.user.Cart}}")'>Eliminar del carrito</button>
         </div>
+    </div>
     {{/each}}
+        <button onclick='checkout("{{this.user.Id}}")'>Finalizar compra</button>
     {{else}}
         <h3>Aun no tienes products en tu carrito</h3>
+        <a href="/">Ir a comprar</a>
     {{/if}}
 
 </div>
+
+<script src="/js/cart.js"></script>

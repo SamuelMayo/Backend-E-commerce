@@ -7,7 +7,7 @@ export default class ProductsDao{
     }
 
     getByID=(id)=>{
-        return productsModel.findOne({_id:id})
+        return productsModel.findOne({_id:id}).lean()
     }
 
     save=(newProduct)=>{

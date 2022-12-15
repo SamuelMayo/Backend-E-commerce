@@ -1,6 +1,6 @@
 
-const AddCart = (product, user) => {
-    let obj = {pid: product,
+const AddToCart = (pid, user) => {
+    let obj = {pid: pid,
     cid:user }
 
     fetch('api/cart',{
@@ -10,7 +10,6 @@ const AddCart = (product, user) => {
             "Content-type":"application/json"
         }
     }).then(result=>result.json()).then(json=>console.log(json))
-
 }
 
 

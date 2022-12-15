@@ -14,6 +14,12 @@ form.addEventListener('submit', evt => {
         }
     }).then(result => result.json()).then(json => {
         console.log(json);
-        form.reset()
+        if(json.status=="success"){
+            alert('registro exitoso')
+            window.location.replace('/login');
+        }else{
+            alert('Usuario o contraseña incorrecta')
+            form.reset()
+        }
     })
 })

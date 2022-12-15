@@ -11,12 +11,13 @@ const home = async (req, res) => {
     })
 }
 
-const cart = async (req,res) => {
+const cart = async (req, res) => {
     const cartId = req.user.Cart;
     const cart = await cartsService.getPopulatedCart(cartId);
     const { products } = cart
     res.render('cart', {
-        products
+        products,
+        user: req.user
     })
 }
 

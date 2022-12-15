@@ -6,8 +6,6 @@
             {{/each}}
         </ul>
 
-        
-
     </div>
 
     <div>
@@ -22,7 +20,7 @@
                 <h3>{{this.Name}}</h3>
                 <p>{{this.Description}}</p>
                 <h2>${{this.Price}}</h2>
-                <button onclick='AddCart("{{this._id}}","{{../this.user.Cart}}")'>Add To Cart</button>
+                <button onclick='AddToCart("{{this._id}}","{{../this.user.Cart}}")'>Add To Cart</button>
             </div>
         {{/each}}
     </div>
