@@ -1,30 +1,35 @@
 <div>
-    <div class="navbar">
+    <div style="display: flex; justify-content:space-between" class="navbar">
         <ul>
             {{#each routes}}
             <li><a href={{this.route}}>{{this.label}}</a></li>
             {{/each}}
         </ul>
 
+        <div>
+            <h1>{{this.user.Name}}</h1>
+            <a href="/api/sessions/logout"><button>Cerrar Sesion</button></a>
+        </div>
     </div>
 
-    <div>
-        <h1>{{this.user.Name}}</h1>
-        <a href="/api/sessions/logout"><button>Cerrar Sesion</button></a>
-    </div>
 
     <div class="productsContainer">
         {{#each products}}
-            <div class="cardProduct">
-                <img src={{this.Image}}>
+        <div style="display: flex; margin-top:50px; border-top:solid 1px black" class="cardProduct">
+            <img style="width: 300px; height: 300px; object-fit:contain" src={{this.Image}}>
+            <div>
                 <h3>{{this.Name}}</h3>
                 <p>{{this.Description}}</p>
                 <h2>${{this.Price}}</h2>
+                {{#if ../this.ADMIN}}
+                <button onclick='DeleteProduct("{{this._id}}","{{../this.ADMIN}}")'>Delete product</button>
+                {{else}}
                 <button onclick='AddToCart("{{this._id}}","{{../this.user.Cart}}")'>Add To Cart</button>
+                {{/if}}
             </div>
+        </div>
         {{/each}}
     </div>
 </div>
 
 <script src="/js/home.js"></script>
-

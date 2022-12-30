@@ -1,0 +1,18 @@
+<a href="/">Home</a>
+
+<div style="margin: auto; width:30%; display:flex; flex-direction:column; align-items:center">
+    <h1>Mi perfil</h1>
+    <h1>{{user.Email}}</h1>
+    <h5>Nombre</h5>
+    <h2>{{user.First_name}}</h2>
+    <h5>Apellido</h5>
+    <h2>{{user.Last_name}}</h2>
+    <h5>Telefono</h5>
+    <h2>{{user.Phone}}</h2>
+    <h5>Edad</h5>
+    {{#if User.Age}}
+    <h2>{{user.Age}}</h2>
+    {{else}}
+    <h2>Edad no encontrada</h2>
+    {{/if}}
+</div>

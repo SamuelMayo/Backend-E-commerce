@@ -1,6 +1,6 @@
 import express from "express";
 import handlebars from 'express-handlebars';
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 import cookieParser from "cookie-parser";
 import __dirname from "./utils.js";
 import viewsRouter from './routes/views.router.js';
@@ -14,7 +14,8 @@ import swaggerUiExpress from 'swagger-ui-express'
 
 const app = express();
 
-const connection = mongoose.connect(`mongodb+srv://${config.mongo.USER}:${config.mongo.PWD}@codercluster.jryq6qx.mongodb.net/${config.mongo.DB}?retryWrites=true&w=majority`);
+// const connection = mongoose.connect(`mongodb+srv://${config.mongo.USER}:${config.mongo.PWD}@codercluster.jryq6qx.mongodb.net/${config.mongo.DB}?retryWrites=true&w=majority`);
+const connection = mongoose.connect(`mongodb://${config.mongo.USER}:${config.mongo.PWD}@ac-gcqxrno-shard-00-00.jryq6qx.mongodb.net:27017,ac-gcqxrno-shard-00-01.jryq6qx.mongodb.net:27017,ac-gcqxrno-shard-00-02.jryq6qx.mongodb.net:27017/${config.mongo.DB}?ssl=true&replicaSet=atlas-ihjz5p-shard-0&authSource=admin&retryWrites=true&w=majority`);
 app.engine('handlebars', handlebars.engine());
 app.set('views', __dirname + '/views');
 app.set('view engine', 'handlebars');

@@ -1,0 +1,16 @@
+<div class="productsContainer">
+    <h1>Panel de usuarios</h1>
+    <a href="/">Home</a>
+    {{#each users}}
+    <div style="display: flex; margin-top:50px; border-top:solid 1px black" class="cardProduct">
+        <div>
+            <h1>{{this.Email}}</h1>
+            <h3><span>Nombre: </span>{{this.First_name}}</h3>
+            <h3><span>Apellido: </span>{{this.Last_name}}</h3>
+            <h3><span>Id del carrito: </span>{{this.Cart}}</h3>
+            <h3><span>Telefono: </span>{{this.Phone}}</h3>
+            <h3><span>Role: </span>{{this.Role}}</h3>
+        </div>
+    </div>
+    {{/each}}
+</div>

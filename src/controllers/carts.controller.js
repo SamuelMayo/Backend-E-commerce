@@ -39,6 +39,12 @@ const checkout = async (req,res) =>{
         html:`
             <h1>Gracias por su compra</h1>
             <h3>El Id de su compra es ${result._id}</h3>
+            <h5>Los productos comprados son:</h5>
+            <ul>
+            ${cartProducts.products.map(prod => {
+                return `<li>${prod.product.Name}</li>`
+            })}
+            </ul>
         `
     })
     let arr = []

@@ -1,24 +1,34 @@
 <div>
-
-    <h1>Mi carrito</h1>
+    <div style="display: flex; justify-content:space-between">
+        <div>
+            <h1>Mi carrito</h1>
+            <a href="/">Home</a>
+        </div>
+        <div>
+            <h1>{{this.user.Name}}</h1>
+            <a href="/api/sessions/logout"><button>Cerrar Sesion</button></a>
+        </div>
+    </div>
 
     {{#if products.length}}
     {{#each products}}
     <div>
-        <div class="cardProduct">
-            <img src={{this.product.Image}}>
-            <h2>{{this.product.Name}}</h2>
-            <p>{{this.product.Description}}</p>
-            <h3>${{this.product.Price}}</h3>
-            <h4>{{this.quantity}}</h4>
-            <button onclick='deleteToCart("{{this._id}}","{{../this.user.Cart}}")'>Eliminar del carrito</button>
+        <div style="display: flex; margin-top:50px; border-top:solid 1px black" class="cardProduct" class="cardProduct">
+            <img style="width: 300px;height: 300px; object-fit:contain" src={{this.product.Image}}>
+            <div>
+                <h2>{{this.product.Name}}</h2>
+                <p>{{this.product.Description}}</p>
+                <h3>${{this.product.Price}}</h3>
+                <h4>{{this.quantity}}</h4>
+                <button onclick='deleteToCart("{{this._id}}","{{../this.user.Cart}}")'>Eliminar del carrito</button>
+            </div>
         </div>
     </div>
     {{/each}}
-        <button onclick='checkout("{{this.user.Id}}")'>Finalizar compra</button>
+    <button style="margin: 50px; width: 300px; margin-rigth:auto" onclick='checkout("{{this.user.Id}}")'>Finalizar compra</button>
     {{else}}
-        <h3>Aun no tienes products en tu carrito</h3>
-        <a href="/">Ir a comprar</a>
+    <h3>Aun no tienes products en tu carrito</h3>
+    <a href="/">Ir a comprar</a>
     {{/if}}
 
 </div>

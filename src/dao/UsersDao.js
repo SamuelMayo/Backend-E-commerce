@@ -4,7 +4,7 @@ import userModel from "./models/user.dao.js";
 export default class UsersDao {
 
     getAll = () => {
-        return userModel.find();
+        return userModel.find().lean();
     }
 
     getByID = (id) => {
@@ -12,7 +12,7 @@ export default class UsersDao {
     }
 
     getByEmail = (Email => {
-        return userModel.findOne({ Email });
+        return userModel.findOne({ Email }).lean();
     })
 
     save = (user) => {

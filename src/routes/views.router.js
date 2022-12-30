@@ -11,6 +11,7 @@ router.get('/register', publicValidation,viewsController.register);
 router.get('/login',publicValidation,viewsController.login)
 router.get('/newProduct',privateValidation, executePolicies(['ADMIN']), viewsController.newProduct)
 router.get('/cart',privateValidation, executePolicies(['USER']),viewsController.cart)
-
+router.get('/profile',privateValidation,viewsController.profile)
+router.get('/usersPanel',privateValidation, executePolicies(['ADMIN']), viewsController.usersPanel)
 
 export default router;
